@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Biodata</title>
+    <style>
+        body {
+            background-color: cyan;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            overflow-y: auto;
+            max-height: 100vh;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            height: 100px;
+            width: 100px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .checkbox-group {
+            margin-bottom: 15px;
+        }
+
+        .checkbox-group label {
+            margin-right: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <h2>Form Biodata</h2>
+        <form action="submit_biodata.php" method="POST">
+            <label for="firstName">Nama Depan:</label>
+            <input type="text" id="firstName" name="firstName" required>
+
+            <label for="lastName">Nama Belakang:</label>
+            <input type="text" id="lastName" name="lastName" required>
+
+            <label for="class">Kelas:</label>
+            <input type="text" id="class" name="class" required>
+
+            <label for="age">Usia:</label>
+            <input type="number" id="age" name="age" required>
+
+            <label for="birthPlace">Tempat Lahir:</label>
+            <input type="text" id="birthPlace" name="birthPlace" required>
+
+            <label for="birthDate">Tanggal Lahir:</label>
+            <input type="date" id="birthDate" name="birthDate" required>
+
+            <div class="checkbox-group">
+                <label>Kabupaten (Jawa Barat):</label><br>
+                <label><input type="checkbox" name="kabupaten[]" value="Bandung"> Bandung</label>
+                <label><input type="checkbox" name="kabupaten[]" value="Bandung Barat"> Bandung Barat</label>
+                <label><input type="checkbox" name="kabupaten[]" value="Bekasi"> Bekasi</label>
+                <label><input type="checkbox" name="kabupaten[]" value="Bogor"> Bogor</label>
+                <label><input type="checkbox" name="kabupaten[]" value="Cirebon"> Cirebon</label>
+            </div>
+
+            <div class="checkbox-group">
+                <label>Kecamatan (Kabupaten Bandung Barat):</label><br>
+                <label><input type="checkbox" name="kecamatan[]" value="Cihampelas"> Cihampelas</label>
+                <label><input type="checkbox" name="kecamatan[]" value="Cikalong Wetan"> Cikalong Wetan</label>
+                <label><input type="checkbox" name="kecamatan[]" value="Ngamprah"> Ngamprah</label>
+                <label><input type="checkbox" name="kecamatan[]" value="Lembang"> Lembang</label>
+                <label><input type="checkbox" name="kecamatan[]" value="Padalarang"> Padalarang</label>
+            </div>
+
+            <div class="checkbox-group">
+                <label>Desa (Kecamatan Ngamprah):</label><br>
+                <label><input type="checkbox" name="desa[]" value="Cilame"> Cilame</label>
+                <label><input type="checkbox" name="desa[]" value="Cipatat"> Cipatat</label>
+                <label><input type="checkbox" name="desa[]" value="Tanimulya"> Tanimulya</label>
+                <label><input type="checkbox" name="desa[]" value="Bojongkoneng"> Bojongkoneng</label>
+                <label><input type="checkbox" name="desa[]" value="Mekarsari"> Mekarsari</label>
+            </div>
+
+            <!-- Tambahkan Checkbox Agama -->
+            <div class="checkbox-group">
+                <label>Agama:</label><br>
+                <label><input type="checkbox" name="agama[]" value="Islam"> Islam</label>
+                <label><input type="checkbox" name="agama[]" value="Kristen"> Kristen</label>
+                <label><input type="checkbox" name="agama[]" value="Katolik"> Katolik</label>
+                <label><input type="checkbox" name="agama[]" value="Hindu"> Hindu</label>
+                <label><input type="checkbox" name="agama[]" value="Buddha"> Buddha</label>
+                <label><input type="checkbox" name="agama[]" value="Konghucu"> Konghucu</label>
+            </div>
+
+            <!-- Tambahkan Checkbox Tempat PKL -->
+            <div class="checkbox-group">
+                <label>Tempat PKL:</label><br>
+                <label><input type="checkbox" name="tempat_pkl[]" value="Jakarta"> Jakarta</label>
+                <label><input type="checkbox" name="tempat_pkl[]" value="Bandung"> Bandung</label>
+                <label><input type="checkbox" name="tempat_pkl[]" value="Surabaya"> Surabaya</label>
+                <label><input type="checkbox" name="tempat_pkl[]" value="Yogyakarta"> Yogyakarta</label>
+                <label><input type="checkbox" name="tempat_pkl[]" value="Semarang"> Semarang</label>
+                <label><input type="checkbox" name="tempat_pkl[]" value="Bali"> Bali</label>
+                <label><input type="checkbox" name="tempat_pkl[]" value="Medan"> Medan</label>
+            </div>
+
+            <label for="rt">RT:</label>
+            <input type="text" id="rt" name="rt" required>
+
+            <label for="rw">RW:</label>
+            <input type="text" id="rw" name="rw" required>
+
+            <label for="confirmation">
+                <input type="checkbox" id="confirmation" name="confirmation" value="yes" required> Apakah data sudah benar?
+            </label>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
